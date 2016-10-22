@@ -21,7 +21,7 @@
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin@gmail.com','admin','admin','admin','admin');
+INSERT INTO `users` VALUES (1,'admin@gmail.com','admin','admin','admin','admin',null);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
