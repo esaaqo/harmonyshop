@@ -22,6 +22,9 @@ public class Address {
 	@NotNull
 	private String state;
 	
+	public Address() {
+		super();
+	}
 	public Address(String street, String zipCode, String city, String state) {
 		super();
 		this.street = street;

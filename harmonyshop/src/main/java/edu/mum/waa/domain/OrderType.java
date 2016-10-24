@@ -13,6 +13,9 @@ public class OrderType {
 	@NotNull
 	String orderType;
 	
+	public OrderType() {
+		super();
+	}
 	public Long getId() {
 		return id;
 	}

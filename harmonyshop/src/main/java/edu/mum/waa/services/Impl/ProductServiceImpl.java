@@ -3,11 +3,9 @@ package edu.mum.waa.services.Impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import edu.mum.waa.domain.Product;
-import edu.mum.waa.domain.User;
 import edu.mum.waa.repositories.ProductRepository;
 import edu.mum.waa.services.ProductService;
 

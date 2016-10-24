@@ -1,7 +1,5 @@
 package edu.mum.waa.services;
 
-import org.springframework.stereotype.Service;
-
 import edu.mum.waa.domain.User;
 import edu.mum.waa.repositories.UserRepository;
 

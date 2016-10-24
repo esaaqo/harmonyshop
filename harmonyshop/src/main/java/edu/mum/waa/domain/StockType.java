@@ -13,6 +13,9 @@ public class StockType {
 	@NotNull
 	String stockType;
 	
+	public StockType() {
+		super();
+	}
 	public Long getId() {
 		return id;
 	}

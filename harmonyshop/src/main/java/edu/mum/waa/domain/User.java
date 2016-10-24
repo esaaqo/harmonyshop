@@ -36,6 +36,10 @@ public class User {
 	List<UserRole> userRoles = new ArrayList<UserRole>();
 	@Valid @OneToOne @JoinColumn(name = "addressId")
 	Address address;
+	
+	public User() {
+		super();
+	}
 	public Long getId() {
 		return id;
 	}

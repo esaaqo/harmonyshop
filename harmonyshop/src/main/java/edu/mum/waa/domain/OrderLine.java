@@ -18,6 +18,10 @@ public class OrderLine{
 	private Product product;	
 	@NotNull
 	private Double quantity;
+	
+	public OrderLine() {
+		super();
+	}	
 	public OrderLine(Order order, Product product, Double quantity) {
 		super();
 		this.order = order;

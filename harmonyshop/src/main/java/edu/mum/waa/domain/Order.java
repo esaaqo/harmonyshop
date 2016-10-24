@@ -35,6 +35,10 @@ public class Order{
 		this.orderType = orderType;
 	}
 	
+	public Order() {
+		super();
+	}
+
 	public Order(User employee, Date date, OrderType orderType, Address shippingAddress, Address billingAddress) {
 		super();
 		this.employee = employee;

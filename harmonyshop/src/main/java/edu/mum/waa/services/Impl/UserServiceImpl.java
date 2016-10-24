@@ -1,7 +1,6 @@
 package edu.mum.waa.services.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import edu.mum.waa.domain.User;

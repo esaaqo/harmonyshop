@@ -14,6 +14,10 @@ public class UserRole {
 	String role;
 	
 	
+	public UserRole() {
+		super();
+	}
+
 	public UserRole(String role) {
 		super();
 		this.role = role;

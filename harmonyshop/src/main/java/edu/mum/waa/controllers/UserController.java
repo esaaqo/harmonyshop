@@ -1,5 +1,7 @@
 package edu.mum.waa.controllers;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -34,7 +36,8 @@ public class UserController {
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	@RequestMapping(value = { "/","/account" }, method = RequestMethod.GET)
-	public String account(Model model) {
+	public String account(Model model,Principal principal) {
+		System.out.println("username " + principal.getName());
 		return "users/account";
 	}
 

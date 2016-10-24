@@ -1,5 +1,6 @@
 package edu.mum.waa.domain;
 
+import javax.persistence.Transient;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,6 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Product{
@@ -24,7 +29,13 @@ public class Product{
 	private Brand brand;
 	@NotNull @OneToOne @JoinColumn(name = "categoryId")
 	private Category category;
-	
+	private String imageName;
+	@JsonIgnore
+	@Transient
+	private MultipartFile imageFile; 
+	public Product() {
+		super();
+	}
 	public Product(String name, String model, String specification, Float price, Brand brand, Category category) {
 		super();
 		this.name = name;
@@ -83,5 +94,19 @@ public class Product{
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+
+	public String getImageName() {
+		return imageName;
+	}
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
+	public MultipartFile getImageFile() {
+		return imageFile;
+	}
+	public void setImageFile(MultipartFile imageFile) {
+		this.imageFile = imageFile;
+	}
+
 	
 }
