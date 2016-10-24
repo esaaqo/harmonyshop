@@ -2,6 +2,7 @@ package edu.mum.waa.domain;
 
 import javax.persistence.Transient;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,9 +26,9 @@ public class Product{
 	private String specification;	
 	@NotNull
 	private Float price;	
-	@NotNull @OneToOne @JoinColumn(name = "brandId")
+	@NotNull @OneToOne(fetch = FetchType.EAGER) @JoinColumn(name = "brandId")
 	private Brand brand;
-	@NotNull @OneToOne @JoinColumn(name = "categoryId")
+	@NotNull @OneToOne(fetch = FetchType.EAGER) @JoinColumn(name = "categoryId")
 	private Category category;
 	private String imageName;
 	@JsonIgnore

@@ -73,7 +73,7 @@ public class StockController {
 	}
 	
 	@RequestMapping(value="/show", method = RequestMethod.GET)
-	public String saveForm(){
+	public String showForm(){
 		return "stock/stockShow";
 	}
 	

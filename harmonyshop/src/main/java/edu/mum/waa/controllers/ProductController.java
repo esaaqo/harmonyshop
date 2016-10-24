@@ -19,8 +19,10 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.mum.waa.domain.Product;
 import edu.mum.waa.services.BrandService;
@@ -52,7 +54,7 @@ public class ProductController {
 		return "products/productForm";
 	}
 	@RequestMapping(value="/save", method = RequestMethod.POST)
-	public String save(@Valid @ModelAttribute("newProduct") Product newProduct, BindingResult bindingResult,Model model) {
+	public String save(@Valid @ModelAttribute("newProduct") Product newProduct, BindingResult bindingResult,Model model,RedirectAttributes redirectAttributes) {
 		if(bindingResult.hasErrors()) 	
 			return "products/productForm";
 		 String[] suppressedFields = bindingResult.getSuppressedFields();
@@ -75,8 +77,15 @@ public class ProductController {
 		}		
 		newProduct.setImageName(imageName);
 		productService.save(newProduct);
-		return "products/productForm";
+		
+		redirectAttributes.addAttribute("productId",newProduct.getId());
+		return "redirect:show";
 	}	
+	@RequestMapping(value="/show", method = RequestMethod.GET)
+	public String saveForm(@RequestParam Long productId,Model model){
+		model.addAttribute("newProduct",productService.findOne(productId));
+		return "products/productShow";
+	}
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		binder.setDisallowedFields("id");

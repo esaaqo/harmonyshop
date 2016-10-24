@@ -31,4 +31,8 @@ public class ProductServiceImpl implements ProductService {
 	public Product save(Product newProduct){
 		return productRepository.save(newProduct);
 	}
+	@Override
+	public Product findOne(Long id){
+		return productRepository.findOne(id);
+	}
 }
