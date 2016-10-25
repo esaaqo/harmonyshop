@@ -11,9 +11,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class OrderLine{
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
-	@NotNull @OneToOne @JoinColumn(name = "orderId")
-	private Order order;	
+	private Long id;	
 	@NotNull @OneToOne @JoinColumn(name = "productId")
 	private Product product;	
 	@NotNull
@@ -22,9 +20,8 @@ public class OrderLine{
 	public OrderLine() {
 		super();
 	}	
-	public OrderLine(Order order, Product product, Double quantity) {
+	public OrderLine(Product product, Double quantity) {
 		super();
-		this.order = order;
 		this.product = product;
 		this.quantity = quantity;
 	}
@@ -33,12 +30,6 @@ public class OrderLine{
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}
-	public Order getOrder() {
-		return order;
-	}
-	public void setOrder(Order order) {
-		this.order = order;
 	}
 	public Product getProduct() {
 		return product;

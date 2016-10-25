@@ -1,13 +1,18 @@
 package edu.mum.waa.domain;
 
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,6 +33,8 @@ public class Order{
 	private Address shippingAddress;
 	@NotNull @OneToOne @JoinColumn(name="billingAddressId")
 	private Address billingAddress;	
+	@NotNull @OneToMany(cascade = CascadeType.ALL,fetch=FetchType.EAGER) @JoinColumn(name = "orderId")
+	private List<OrderLine> orderLines=new ArrayList<OrderLine>();
 	public Order(User client, Date date, OrderType orderType) {
 		super();
 		this.employee = client;
@@ -87,6 +94,22 @@ public class Order{
 
 	public void setShippingAddress(Address shippingAddress) {
 		this.shippingAddress = shippingAddress;
+	}
+
+	public Address getBillingAddress() {
+		return billingAddress;
+	}
+
+	public void setBillingAddress(Address billingAddress) {
+		this.billingAddress = billingAddress;
+	}
+
+	public List<OrderLine> getOrderLines() {
+		return orderLines;
+	}
+
+	public void setOrderLines(List<OrderLine> orderLines) {
+		this.orderLines = orderLines;
 	}
 		
 }
