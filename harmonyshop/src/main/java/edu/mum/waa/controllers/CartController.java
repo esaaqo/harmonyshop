@@ -88,10 +88,13 @@ public class CartController {
 				orderService.save(order);
 				session.setAttribute("cart", order);
 			}
-			Product addProdcuct =  productService.findOne(productId);
-			OrderLine orderLine = new OrderLine(addProdcuct,1D);
+			//Product addProdcuct =  productService.findOne(productId);
+			//OrderLine orderLine = new OrderLine(addProdcuct,1D);
 			//orderLine.set;
-			//for()
+			for(OrderLine orderLine:order.getOrderLines()){
+				if(orderLine.getProduct().getId()== productId)
+					order.getOrderLines().remove(orderLine);
+			}
 			System.out.println("cart items: " + order.getOrderLines().size());
 			orderService.save(order);
 			//order.getOrderLines().add(e)

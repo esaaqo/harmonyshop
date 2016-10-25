@@ -22,12 +22,11 @@
 							<p><spring:eval expression =  "product.activeDate" /></p> --%>
 							<p>
 								<a
-									href=" <spring:url value="/products/product?id=${product.category}" /> "
+									href=" <spring:url value="/products/show?productId=${product.id}" /> "
 									class="btn btn-primary"> <span
 									class="glyphicon-info-sign glyphicon" /></span> Details
 								</a>
 							</p>
-
 						</div>
 					</div>
 				</div>
