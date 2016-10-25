@@ -91,7 +91,7 @@ public class CartController {
 			Product addProdcuct =  productService.findOne(productId);
 			OrderLine orderLine = new OrderLine(addProdcuct,1D);
 			//orderLine.set;
-			order.getOrderLines().remove(orderLine);
+			//for()
 			System.out.println("cart items: " + order.getOrderLines().size());
 			orderService.save(order);
 			//order.getOrderLines().add(e)
