@@ -1,14 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
 	<title>Stock</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" />
+	
 	<script	src="<c:url value="/resources/js/base.js" />"></script>
 	<script	src="<c:url value="/resources/js/stock.js" />"></script>
     <style>
@@ -25,18 +23,10 @@
     </style>
 </head>
 <body>
-    <section>
-		<div class="jumbotron">
-			<div class="container">
-				<h1>Stock</h1>
-			</div>
-		</div>
-	</section>
 	<section class="container"> 
         <div class="product-container">
             <c:url var="stockSave" value="/stock/save" />
             <form:form id="stockForm" modelAttribute="newStock" class="form-horizontal" method="post" action="${stockSave }">
-	            <legend>Stock</legend>  
 	            <form:errors path="*" cssClass="text-danger"/>                                                                                                           
 				<div class="input-group input-sm">
 					<label class="input-group-addon" for="date"><spring:message code="stock.date.label"/></label>

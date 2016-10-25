@@ -3,11 +3,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
-	<title>Product, Brand, Category</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" />
 	<script	src="<c:url value="/resources/js/base.js" />"></script>
 	<script	src="<c:url value="/resources/js/products.js" />"></script>
     <style>
@@ -19,27 +14,19 @@
 			width:150px;
 		}  
 		.form-control{
-			width:300px;
+			width:400px;
 		}
     </style>
 </head>
 <body>
-    <section>
-		<div class="jumbotron">
-			<div class="container">
-				<h1>Product</h1>
-			</div>
-			<a href="#" class="btn btn-default pull-right" data-toggle="modal" data-target="#brandModal" id="addBrandForm">Add Brand</a>
-			<a href="#" class="btn btn-default pull-right" data-toggle="modal" data-target="#categoryModal" id="addCategoryForm">Add Category</a	>
-		</div>
-	</section>
+
 	<section class="container"> 
         <div class="product-container">
             <div class="login-card">
                 <div class="login-form">
                     <c:url var="productSave" value="/products/save" />
                     <form:form modelAttribute="newProduct" class="form-horizontal" method="post" action="${productSave }" enctype="multipart/form-data">
-                    	<legend>Add product</legend>                                                                                                             
+                                                                                                             
 						<div class="input-group input-sm">
 							<label class="input-group-addon" for="name"><spring:message code="product.name.label"/></label>
 							<form:input id="name" path="name" type="text" class="form-control" value="shalom"/>

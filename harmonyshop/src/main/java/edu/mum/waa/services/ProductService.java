@@ -9,4 +9,5 @@ public interface ProductService {
 	public Product findOne(Long id);
 	public Product getProductByName(String productName);
 	public Product save(Product newProduct);
+	List<Product> search(String searchTerm);
 }

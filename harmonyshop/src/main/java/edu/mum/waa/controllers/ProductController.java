@@ -86,6 +86,11 @@ public class ProductController {
 		model.addAttribute("newProduct",productService.findOne(productId));
 		return "products/productShow";
 	}
+	@RequestMapping(value="/search", method = RequestMethod.GET)
+	public String search(@RequestParam("searchTerm") String searchTerm,Model model){
+		model.addAttribute("products",productService.search(searchTerm));
+		return "products/products";
+	}
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		binder.setDisallowedFields("id");

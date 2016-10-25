@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.mum.waa.domain.User;
 import edu.mum.waa.domain.UserRole;
+import edu.mum.waa.services.ProductService;
 import edu.mum.waa.services.UserService;
 
 @Controller
@@ -32,13 +33,15 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
-	
+	@Autowired
+	ProductService productService;	
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
-	@RequestMapping(value = { "/","/account" }, method = RequestMethod.GET)
-	public String account(Model model,Principal principal) {
-		System.out.println("username " + principal.getName());
-		return "users/account";
+	@RequestMapping(value = { "/","/welcome" }, method = RequestMethod.GET)
+	public String account(Model model,Principal principal) {	
+		model.addAttribute("products",productService.getAll());
+		return "welcome";
+		//return "users/account";
 	}
 
 	@RequestMapping(value = { "/login" }, method = RequestMethod.GET)
@@ -82,6 +85,11 @@ public class UserController {
 		}
 		return "redirect:/login";
 	}
+	@RequestMapping(value = { "/tile" }, method = RequestMethod.GET)
+	public String tile(Model model) {
+		System.out.println("tile");
+		return "welcome";
+	}	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		binder.setDisallowedFields("id");

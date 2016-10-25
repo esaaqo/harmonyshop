@@ -3,6 +3,7 @@ package edu.mum.waa.services.Impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import edu.mum.waa.domain.Product;
@@ -34,5 +35,9 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Product findOne(Long id){
 		return productRepository.findOne(id);
+	}
+	@Override
+	public List<Product> search(String searchTerm){
+		return productRepository.search(searchTerm);
 	}
 }
